@@ -9,45 +9,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>body{font-family:'Poppins',sans-serif}</style>
 </head>
-<body class="bg-gray-50 min-h-screen p-4">
-  <div class="max-w-2xl mx-auto">
-    <h1 class="text-3xl font-bold mb-6 text-blue-700 flex items-center gap-2 justify-center">
-      <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+<body class="bg-blue-50 min-h-screen p-6">
+  <div class="max-w-3xl mx-auto">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold mb-8 text-center text-blue-800 flex items-center justify-center gap-3">
+      <svg class="w-9 h-9 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M8 6H21M8 12H21M8 18H21M3 6h.01M3 12h.01M3 18h.01"/>
+              d="M12 20h9M12 4h9M4 6h16M4 10h16M4 14h16M4 18h16" />
       </svg>
-      Buku Tamu
+      Buku Tamu Digital
     </h1>
 
-    <!-- input card -->
-    <div class="bg-white p-6 rounded-lg shadow-md space-y-4">
-      <input type="hidden" id="id" />
-      <input id="nama" placeholder="nama" required
-             class="w-full border rounded px-4 py-2 focus:ring-2 focus:ring-blue-400"/>
-      <input type="date" id="tanggal" required
-             class="w-full border rounded px-4 py-2 focus:ring-2 focus:ring-blue-400"/>
-      <textarea id="deskripsi" rows="4" placeholder="Deskripsi" required
-                class="w-full border rounded px-4 py-2 focus:ring-2 focus:ring-blue-400"></textarea>
+    <!-- Form Input -->
+    <div class="bg-white p-6 rounded-xl shadow-lg space-y-5 border">
+      <div>
+        <label for="nama" class="block font-medium text-gray-700 mb-1">Nama Lengkap</label>
+        <input id="nama" placeholder="Masukkan nama Anda"
+               class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400" required />
+      </div>
+
+      <div>
+        <label for="tanggal" class="block font-medium text-gray-700 mb-1">Tanggal</label>
+        <input type="date" id="tanggal"
+               class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400" required />
+      </div>
+
+      <div>
+        <label for="deskripsi" class="block font-medium text-gray-700 mb-1">Keperluan / Pesan</label>
+        <textarea id="deskripsi" rows="4" placeholder="Tulis pesan atau keperluan Anda"
+                  class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400" required></textarea>
+      </div>
 
       <button onclick="simpanCatatan()"
-              class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded font-semibold">
-        💾 Simpan
+              class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold">
+        💾 Simpan ke Buku Tamu
       </button>
     </div>
 
-    <!-- hasil -->
-    <div id="hasil" class="mt-8 space-y-4"></div>
+    <!-- Hasil -->
+    <div id="hasil" class="mt-10 space-y-4">
+    </div>
   </div>
 
-  <!-- modal hapus -->
-  <div id="modal-hapus" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
-    <div class="bg-white p-6 rounded-lg shadow w-96">
-      <h2 class="text-lg font-semibold mb-4">Konfirmasi Hapus</h2>
-      <p class="text-gray-600 mb-6">Yakin menghapus catatan ini?</p>
+  <!-- Modal Hapus -->
+  <div id="modal-hapus" class="fixed inset-0 bg-black/40 flex items-center justify-center hidden z-50">
+    <div class="bg-white p-6 rounded-lg shadow-xl w-96">
+      <h2 class="text-xl font-semibold mb-3 text-gray-800">Konfirmasi Hapus</h2>
+      <p class="text-gray-600 mb-5">Apakah Anda yakin ingin menghapus entri ini?</p>
       <div class="flex justify-end gap-3">
-        <button onclick="tutupModal()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Batal</button>
+        <button onclick="tutupModal()" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300 text-sm">Batal</button>
         <button id="konfirmasi-hapus"
-                class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700">Hapus</button>
+                class="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700 text-sm">Hapus</button>
       </div>
     </div>
   </div>
