@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Catatan Kader</title>
+  <title>Buku Tamu</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -16,13 +16,13 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
               d="M8 6H21M8 12H21M8 18H21M3 6h.01M3 12h.01M3 18h.01"/>
       </svg>
-      Catatan Kader
+      Buku Tamu
     </h1>
 
     <!-- input card -->
     <div class="bg-white p-6 rounded-lg shadow-md space-y-4">
       <input type="hidden" id="id" />
-      <input id="judul" placeholder="Judul" required
+      <input id="nama" placeholder="nama" required
              class="w-full border rounded px-4 py-2 focus:ring-2 focus:ring-blue-400"/>
       <input type="date" id="tanggal" required
              class="w-full border rounded px-4 py-2 focus:ring-2 focus:ring-blue-400"/>
@@ -31,7 +31,7 @@
 
       <button onclick="simpanCatatan()"
               class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded font-semibold">
-        💾 Simpan Catatan
+        💾 Simpan
       </button>
     </div>
 

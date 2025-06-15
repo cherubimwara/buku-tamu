@@ -1,15 +1,14 @@
 import { createClient } from "https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm";
 
-// ★ ganti ke kredensialmu sendiri
 const supabase = createClient(
-    'https://gfdkeutgojqefygoxnow.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdmZGtldXRnb2pxZWZ5Z294bm93Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk4Mjk5NDksImV4cCI6MjA2NTQwNTk0OX0.vWQ70YA7egXTLg8glagWKhhjmIqpohxByA5Vgnv_eMk'
+    'https://qbziwpwkunkxwjdagdyw.supabase.co',
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFieml3cHdrdW5reHdqZGFnZHl3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk5ODY3MDEsImV4cCI6MjA2NTU2MjcwMX0.ccyOfdqi2rLLy41rAEogirfMbj0gD9ZKaGpW-aHSSwQ'
   );
 
 
-const TABLE = "catatan";           
+const TABLE = "buku_tamu";           
 const idEl  = document.getElementById("id");
-const judul = document.getElementById("judul");
+const nama = document.getElementById("nama");
 const tanggal = document.getElementById("tanggal");
 const desk = document.getElementById("deskripsi");
 const list = document.getElementById("hasil");
@@ -21,7 +20,7 @@ let idHapus = null;
 /* ---------------- simpan / update ---------------- */
 window.simpanCatatan = async () => {
   const payload = {
-    judul: judul.value,
+    nama: nama.value,
     tanggal: tanggal.value,
     deskripsi: desk.value
   };
@@ -33,18 +32,18 @@ window.simpanCatatan = async () => {
   }
 
   idEl.value = "";
-  judul.value = tanggal.value = desk.value = "";
+  nama.value = tanggal.value = desk.value = "";
   loadData();
 };
 
 /* ---------------- tampil data ---------------- */
-function card({id, judul, tanggal, deskripsi}) {
+function card({id, nama, tanggal, deskripsi}) {
   return `
   <div class="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500 hover:shadow-lg">
     <h3 class="text-lg font-semibold flex items-center gap-1 text-gray-800">
       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-      </svg>${judul}
+      </svg>${nama}
     </h3>
     <p class="text-xs text-gray-500 mb-1">${tanggal}</p>
     <p class="text-gray-700">${deskripsi}</p>
@@ -71,7 +70,7 @@ loadData();
 window.isiForm = async id => {
   const { data } = await supabase.from(TABLE).select("*").eq("id", id).single();
   idEl.value = data.id;
-  judul.value = data.judul;
+  nama.value = data.nama;
   tanggal.value = data.tanggal;
   desk.value = data.deskripsi;
   window.scrollTo({ top: 0, behavior: "smooth" });
