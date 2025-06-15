@@ -39,21 +39,35 @@ window.simpanCatatan = async () => {
 /* ---------------- tampil data ---------------- */
 function card({id, nama, tanggal, deskripsi}) {
   return `
-  <div class="bg-white rounded-lg shadow p-4 border-l-4 border-blue-500 hover:shadow-lg">
-    <h3 class="text-lg font-semibold flex items-center gap-1 text-gray-800">
-      <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-      </svg>${nama}
-    </h3>
-    <p class="text-xs text-gray-500 mb-1">${tanggal}</p>
-    <p class="text-gray-700">${deskripsi}</p>
-    <div class="mt-3 flex gap-2">
-      <button onclick="isiForm(${id})"
-              class="px-3 py-1 bg-yellow-400 hover:bg-yellow-500 text-white rounded text-sm">✏️ Edit</button>
-      <button onclick="confirmHapus(${id})"
-              class="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-sm">🗑️ Hapus</button>
-    </div>
-  </div>`;
+  <div class="overflow-x-auto">
+    <table class="min-w-full bg-white rounded-lg shadow border text-sm text-left">
+      <thead class="bg-blue-100 text-blue-700">
+        <tr>
+          <th class="px-4 py-2">Nama</th>
+          <th class="px-4 py-2">Tanggal</th>
+          <th class="px-4 py-2">Deskripsi</th>
+          <th class="px-4 py-2">Aksi</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t hover:bg-gray-50">
+          <td class="px-4 py-2 font-medium text-gray-800">${nama}</td>
+          <td class="px-4 py-2 text-gray-600">${tanggal}</td>
+          <td class="px-4 py-2 text-gray-700">${deskripsi}</td>
+          <td class="px-4 py-2">
+            <div class="flex gap-2">
+              <button onclick="isiForm(${id})"
+                      class="px-3 py-1 bg-yellow-400 hover:bg-yellow-500 text-white rounded text-xs">✏️ Edit</button>
+              <button onclick="confirmHapus(${id})"
+                      class="px-3 py-1 bg-red-500 hover:bg-red-600 text-white rounded text-xs">🗑️ Hapus</button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+`;
+
 }
 
 async function loadData() {

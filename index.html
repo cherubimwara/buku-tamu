@@ -7,21 +7,26 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>body{font-family:'Poppins',sans-serif}</style>
+  <style>
+    body { font-family: 'Poppins', sans-serif }
+  </style>
 </head>
 <body class="bg-blue-50 min-h-screen p-6">
   <div class="max-w-3xl mx-auto">
+
     <!-- Header -->
     <h1 class="text-4xl font-bold mb-8 text-center text-blue-800 flex items-center justify-center gap-3">
       <svg class="w-9 h-9 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M12 20h9M12 4h9M4 6h16M4 10h16M4 14h16M4 18h16" />
+              d="M8 6H21M8 12H21M8 18H21M3 6h.01M3 12h.01M3 18h.01"/>
       </svg>
       Buku Tamu Digital
     </h1>
 
-    <!-- Form Input -->
+    <!-- Input Form -->
     <div class="bg-white p-6 rounded-xl shadow-lg space-y-5 border">
+      <input type="hidden" id="id" />
+      
       <div>
         <label for="nama" class="block font-medium text-gray-700 mb-1">Nama Lengkap</label>
         <input id="nama" placeholder="Masukkan nama Anda"
@@ -47,12 +52,11 @@
     </div>
 
     <!-- Hasil -->
-    <div id="hasil" class="mt-10 space-y-4">
-    </div>
+    <div id="hasil" class="mt-10 space-y-4"></div>
   </div>
 
   <!-- Modal Hapus -->
-  <div id="modal-hapus" class="fixed inset-0 bg-black/40 flex items-center justify-center hidden z-50">
+  <div id="modal-hapus" class="fixed inset-0 bg-black/50 flex items-center justify-center hidden z-50">
     <div class="bg-white p-6 rounded-lg shadow-xl w-96">
       <h2 class="text-xl font-semibold mb-3 text-gray-800">Konfirmasi Hapus</h2>
       <p class="text-gray-600 mb-5">Apakah Anda yakin ingin menghapus entri ini?</p>
