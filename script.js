@@ -76,7 +76,7 @@ async function loadData() {
     ? "<p class='text-red-500'>Gagal memuat data</p>"
     : data.length
         ? data.map(card).join("")
-        : "<p class='text-gray-500 text-center'>Belum ada catatan.</p>";
+        : "<p class='text-gray-500 text-center'>Belum ada Data.</p>";
 }
 loadData();
 
