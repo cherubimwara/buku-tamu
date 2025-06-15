@@ -1,9 +1,9 @@
 version: "3.8"
 
 services:
-  catatan-app:
+  buku-tamu:
     build: .
-    container_name: catatan
+    container_name: buku-tamu
     ports:
       - "8080:80"
     restart: always
