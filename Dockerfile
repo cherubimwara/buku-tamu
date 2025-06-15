@@ -1,17 +1,15 @@
-# Gunakan base image
-FROM node:20-alpine
+# Gunakan image Nginx sebagai web server
+FROM nginx:alpine
 
-# Buat direktori kerja
-WORKDIR /app
+# Hapus konfigurasi default nginx
+RUN rm -rf /usr/share/nginx/html/*
 
-# Salin semua file ke dalam container
-COPY . .
+# Salin file HTML dan JS ke dalam direktori html nginx
+COPY index.html /usr/share/nginx/html/
+COPY calc.js /usr/share/nginx/html/
 
-# Install http-server
-RUN npm install -g http-server
+# Expose port 80
+EXPOSE 80
 
-# Expose port default
-EXPOSE 8080
-
-# Jalankan server
-CMD ["http-server", ".", "-p", "8080"]
+# Jalankan Nginx
+CMD ["nginx", "-g", "daemon off;"]
