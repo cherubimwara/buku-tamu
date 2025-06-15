@@ -6,7 +6,7 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Salin file HTML dan JS ke dalam direktori html nginx
 COPY index.html /usr/share/nginx/html/
-COPY calc.js /usr/share/nginx/html/
+COPY script.js /usr/share/nginx/html/
 
 # Expose port 80
 EXPOSE 80
